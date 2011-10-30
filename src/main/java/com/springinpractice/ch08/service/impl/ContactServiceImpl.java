@@ -23,6 +23,7 @@ import org.apache.velocity.app.VelocityEngine;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -66,6 +67,7 @@ public class ContactServiceImpl implements ContactService {
 	 * @see com.springinpractice.ch08.service.ContactService#saveUserMessage
 	 * (com.springinpractice.ch08.model.UserMessage)
 	 */
+	@Async
 	@Transactional(readOnly = false)
 	public void saveUserMessage(UserMessage userMsg) {
 		notNull(userMsg, "userMsg can't be null");
