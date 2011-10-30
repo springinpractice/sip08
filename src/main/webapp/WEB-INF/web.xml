@@ -15,8 +15,8 @@
 	<context-param>
 		<param-name>aboutThisRecipe</param-name>
 		<param-value><![CDATA[
-			<p>In recipe 8.2 we add support for confirmation e-mails and admin notification e-mails to our contact
-			service.</p>
+			<p>Recipe 8.3 uses the Spring TaskExecutor abstraction to speed up the process of submitting a user message
+			by making it asynchronous.</p>
 		]]></param-value>
 	</context-param>
 	<context-param>

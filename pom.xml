@@ -11,12 +11,13 @@
 		<version>1.0-RELEASE</version>
 	</parent>
 	
-	<artifactId>com.springinpractice.08_02</artifactId>
+	<artifactId>com.springinpractice.08_03</artifactId>
 	<packaging>war</packaging>
 	
-	<name>Spring in Practice Recipe 8.2</name>
+	<name>Spring in Practice Recipe 8.3</name>
 	<description>
-		In recipe 8.2 we add support for confirmation e-mails and admin notification e-mails to our contact service.
+		Recipe 8.3 uses the Spring TaskExecutor abstraction to speed up the process of submitting a user message by
+		making it asynchronous.
 	</description>
 	<url>http://springinpractice.com/</url>
 	
