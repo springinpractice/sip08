@@ -27,6 +27,8 @@
 		
 		<property name="annotatedClasses">
 			<list>
+				<value>com.springinpractice.ch08.model.Subscriber</value>
+				<value>com.springinpractice.ch08.model.Unsubscriber</value>
 				<value>com.springinpractice.ch08.model.UserMessage</value>
 			</list>
 		</property>
@@ -53,8 +55,9 @@
 		p:resourceLoaderPath="classpath:/velocity/" />
 	
 	<util:properties id="contactServiceProps" location="classpath:/spring/contactService.properties" />
+	<util:properties id="mailingListServiceProps" location="classpath:/spring/mailingListService.properties" />
 	
 	<task:annotation-driven />
-	<task:executor id="userMessageExecutor" pool-size="5-10" queue-capacity="100" keep-alive="300" />
+	<task:executor id="executor" pool-size="5-10" queue-capacity="100" keep-alive="300" />
 	
 </beans>
