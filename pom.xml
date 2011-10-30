@@ -11,13 +11,12 @@
 		<version>1.0-RELEASE</version>
 	</parent>
 	
-	<artifactId>com.springinpractice.08_01</artifactId>
+	<artifactId>com.springinpractice.08_02</artifactId>
 	<packaging>war</packaging>
 	
-	<name>Spring in Practice Recipe 8.1</name>
+	<name>Spring in Practice Recipe 8.2</name>
 	<description>
-		Recipe 8.1 shows how to create a simple user feedback form. This is technically similar to what we did in
-		chapter 4, but here we show how to pre- and post-populate the form bean.
+		In recipe 8.2 we add support for confirmation e-mails and admin notification e-mails to our contact service.
 	</description>
 	<url>http://springinpractice.com/</url>
 	
@@ -49,6 +48,14 @@
 			<artifactId>com.springinpractice.skin</artifactId>
 			<version>1.0-RELEASE</version>
 			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>com.springsource.javax.mail</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>com.springsource.org.apache.velocity</artifactId>
 		</dependency>
 	</dependencies>
 
