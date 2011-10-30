@@ -15,7 +15,8 @@
 	<context-param>
 		<param-name>aboutThisRecipe</param-name>
 		<param-value><![CDATA[
-			<p>TODO</p>
+			<p>Recipe 8.1 shows how to create a simple user feedback form. This is technically similar to what we did in
+			chapter 4, but here we show how to pre- and post-populate the form bean.</p>
 		]]></param-value>
 	</context-param>
 	<context-param>

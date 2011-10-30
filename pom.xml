@@ -16,7 +16,8 @@
 	
 	<name>Spring in Practice Recipe 8.1</name>
 	<description>
-		TODO
+		Recipe 8.1 shows how to create a simple user feedback form. This is technically similar to what we did in
+		chapter 4, but here we show how to pre- and post-populate the form bean.
 	</description>
 	<url>http://springinpractice.com/</url>
 	
