@@ -10,13 +10,12 @@
 	</context-param>
 	<context-param>
 		<param-name>recipe</param-name>
-		<param-value>8.3</param-value>
+		<param-value>8.4</param-value>
 	</context-param>
 	<context-param>
 		<param-name>aboutThisRecipe</param-name>
 		<param-value><![CDATA[
-			<p>Recipe 8.3 uses the Spring TaskExecutor abstraction to speed up the process of submitting a user message
-			by making it asynchronous.</p>
+			<p>Recipe 8.4 shows how to implement mailing list subscription and unsubscription.</p>
 		]]></param-value>
 	</context-param>
 	<context-param>

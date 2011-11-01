@@ -11,13 +11,12 @@
 		<version>1.0-RELEASE</version>
 	</parent>
 	
-	<artifactId>com.springinpractice.08_03</artifactId>
+	<artifactId>com.springinpractice.08_04</artifactId>
 	<packaging>war</packaging>
 	
-	<name>Spring in Practice Recipe 8.3</name>
+	<name>Spring in Practice Recipe 8.4</name>
 	<description>
-		Recipe 8.3 uses the Spring TaskExecutor abstraction to speed up the process of submitting a user message by
-		making it asynchronous.
+		Recipe 8.4 shows how to implement mailing list subscription and unsubscription.
 	</description>
 	<url>http://springinpractice.com/</url>
 	

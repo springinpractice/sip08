@@ -16,6 +16,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -29,6 +30,9 @@ import org.hibernate.validator.constraints.Email;
  */
 @Entity
 @Table(name = "subscriber")
+@NamedQuery(
+	name = "deleteSubscriberByEmail",
+	query = "delete from Subscriber where email = :email")
 public final class Subscriber {
 	private Long id;
 	
@@ -46,7 +50,6 @@ public final class Subscriber {
 	private String email;
 	
 	private boolean confirmed = false;
-	private boolean enabled = false;
 	private String ipAddress;
 	private Date dateCreated;
 	
@@ -78,11 +81,6 @@ public final class Subscriber {
 	
 	public void setConfirmed(boolean confirmed) { this.confirmed = confirmed; }
 	
-	@Column(name = "enabled")
-	public boolean isEnabled() { return enabled; }
-	
-	public void setEnabled(boolean enabled) { this.enabled = enabled; }
-
 	@Column(name = "ip_addr")
 	public String getIpAddress() { return ipAddress; }
 
@@ -101,7 +99,6 @@ public final class Subscriber {
 			.append("lastName", lastName)
 			.append("email", email)
 			.append("confirmed", confirmed)
-			.append("enabled", enabled)
 			.append("ipAddress", ipAddress)
 			.append("dateCreated", dateCreated)
 		.toString();

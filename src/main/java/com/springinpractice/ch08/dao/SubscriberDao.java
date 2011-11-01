@@ -18,5 +18,10 @@ import com.springinpractice.dao.Dao;
  */
 public interface SubscriberDao extends Dao<Subscriber> {
 	
-	void disableAllByEmail(String email);
+	/**
+	 * Deletes the subscriber having the given e-mail address.
+	 * 
+	 * @param email email
+	 */
+	void deleteByEmail(String email);
 }

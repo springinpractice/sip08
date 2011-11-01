@@ -7,7 +7,6 @@ create table subscriber (
     first_name varchar(40) not null,
     email varchar(80) not null,
     confirmed tinyint(1) not null,
-    enabled tinyint(1) not null,
     ip_addr varchar(40) not null,
     date_created timestamp default 0,
     date_modified timestamp default current_timestamp on update current_timestamp,

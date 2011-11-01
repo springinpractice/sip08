@@ -9,9 +9,10 @@
  */
 package com.springinpractice.ch08.dao.hbn;
 
+import static org.springframework.util.Assert.notNull;
+
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.Assert;
 
 import com.springinpractice.ch08.dao.SubscriberDao;
 import com.springinpractice.ch08.model.Subscriber;
@@ -21,14 +22,16 @@ import com.springinpractice.dao.hibernate.AbstractHbnDao;
  * @version $Id: HbnSubscriberDao.java 6 2011-04-10 01:31:25Z willie $
  * @author Willie Wheeler (willie.wheeler@gmail.com)
  */
-@Repository("subscriberDao")
-public class HbnSubscriberDao extends AbstractHbnDao<Subscriber>
-	implements SubscriberDao {
+@Repository
+public class HbnSubscriberDao extends AbstractHbnDao<Subscriber> implements SubscriberDao {
 		
-	public void disableAllByEmail(String email) {
-		Assert.notNull(email, "email required");
-		Query q = getSession().createQuery(
-			"update Subscriber set enabled = false where email = :email");
+	/* (non-Javadoc)
+	 * @see com.springinpractice.ch08.dao.SubscriberDao#deleteByEmail(java.lang.String)
+	 */
+	public void deleteByEmail(String email) {
+		notNull(email, "email required");
+//		Query q = getSession().createQuery("delete Subscriber where email = :email");
+		Query q = getSession().getNamedQuery("deleteSubscriberByEmail");
 		q.setString("email", email);
 		q.executeUpdate();
 	}

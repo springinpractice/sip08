@@ -133,11 +133,13 @@ public class MailingListController {
 			return getFullViewName("subscribeSuccess");
 		} catch (ConfirmationExpiredException e) {
 			model.addAttribute("expired", true);
-			return getFullViewName("subscribeForm");
 		} catch (ConfirmationFailedException e) {
 			model.addAttribute("failed", true);
-			return getFullViewName("subscribeForm");
 		}
+		
+		// Subscription failed
+		model.addAttribute(new Subscriber());
+		return getFullViewName("subscribeForm");
 	}
 	
 	
@@ -192,7 +194,7 @@ public class MailingListController {
 	@RequestMapping(value = "/unsubscribe-confirm", method = RequestMethod.GET)
 	public String confirmUnsubscription(
 			@RequestParam("e") String email,
-			@RequestParam("t") long timestamp,
+			@RequestParam("t") Long timestamp,
 			@RequestParam("d") String digest,
 			Model model) {
 		
@@ -201,11 +203,15 @@ public class MailingListController {
 			return getFullViewName("unsubscribeSuccess");
 		} catch (ConfirmationExpiredException e) {
 			model.addAttribute("expired", true);
-			return getFullViewName("unsubscribeForm");
 		} catch (ConfirmationFailedException e) {
 			model.addAttribute("failed", true);
-			return getFullViewName("unsubscribeForm");
 		}
+		
+		// Unsubscription failed
+		Unsubscriber unsubscriber = new Unsubscriber();
+		unsubscriber.setEmail(email);
+		model.addAttribute(unsubscriber);
+		return getFullViewName("unsubscribeForm");
 	}
 	
 	

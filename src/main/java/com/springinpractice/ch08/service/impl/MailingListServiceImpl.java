@@ -100,8 +100,8 @@ public class MailingListServiceImpl implements MailingListService {
 		
 		log.info("Adding unconfirmed subscriber: " + subscriber);
 		
-		// FIXME Need to handle the case where the subscriber already exists. The unsubscribe option simply disables
-		// the subscription rather than deleting it.
+		// If the subscriber already exists, then this method throws an exception. The user never sees this because
+		// we're running this method asynchronously. That's what we want.
 		subscriberDao.create(subscriber);
 		
 		sendConfirmSubscriptionEmail(subscriber);
@@ -159,7 +159,6 @@ public class MailingListServiceImpl implements MailingListService {
 		// All good, confirm it
 		log.info("Confirming subscriber: " + subscriber);
 		subscriber.setConfirmed(true);
-		subscriber.setEnabled(true);
 		subscriberDao.update(subscriber);
 	}
 	
@@ -225,7 +224,6 @@ public class MailingListServiceImpl implements MailingListService {
 		notNull(digest, "digest required");
 		
 		// Check timestamp first to avoid SHA-based DoS.
-		// FIXME Don't just let the exception bubble up...
 		checkTimestamp(timestamp);
 		
 		// Now generate the digest and check for a match.
@@ -235,9 +233,8 @@ public class MailingListServiceImpl implements MailingListService {
 		}
 		
 		// All good, confirm it
-		// FIXME What happens when the user wants to resubscribe? Will there be a duplicate?
 		log.info("Confirming unsubscription for: " + email);
-		subscriberDao.disableAllByEmail(email);
+		subscriberDao.deleteByEmail(email);
 	}
 	
 	private String generateUnsubscriptionDigest(String email, long timestamp) {

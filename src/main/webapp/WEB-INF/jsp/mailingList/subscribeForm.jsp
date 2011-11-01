@@ -6,31 +6,34 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <c:url var="subscribeUrl" value="/mailinglist/subscribe.html" />
+<c:url var="unsubscribeUrl" value="/mailinglist/unsubscribe.html" />
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>Subscribe to the mailing list</title>
 	</head>
 	<body>
-		<h1>Subscribe to the mailing list</h1>
+		<div>
+			<h1 style="display:inline">Subscribe to the mailing list</h1>
+			<span style="margin-left:20px"><a href="${unsubscribeUrl}">Unsubscribe</a></span>
+		</div>
 					
-		<c:if test="${not empty param.expired}">
+		<c:if test="${not empty expired}">
 			<div class="warning alert">
-				Sorry, your previous subscription request has expired. To subscribe you
-				will need to complete a new subscription request using the form below.
+				Sorry, your previous subscription request has expired. To subscribe you will need to complete a new
+				subscription request using the form below.
 			</div>
 		</c:if>
-		<c:if test="${not empty param.failed}">
+		<c:if test="${not empty failed}">
 			<div class="warning alert">
-				Sorry, we were unable to confirm your subscription. If you copied the
-				URL from your confirmation e-mail into the browser, please make sure
-				you copied the entire URL. Otherwise, you can complete a new subscription
-				request using the form below.
+				Sorry, we were unable to confirm your subscription. If you copied the URL from your confirmation e-mail
+				into the browser, please make sure you copied the entire URL. Otherwise, you can complete a new
+				subscription request using the form below.
 			</div>
 		</c:if>
 					
 		<p>To subscribe, please provide your name and e-mail address.</p>
-					
+		
 		<%-- Specify the action explicitly to eliminate the expires param --%>
 		<form:form cssClass="main" modelAttribute="subscriber" action="${subscribeUrl}">
 			<form:errors path="*">
