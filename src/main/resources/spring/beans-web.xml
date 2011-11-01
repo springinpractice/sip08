@@ -15,11 +15,21 @@
 	<mvc:view-controller path="/contact/thanks.html" view-name="contact/thanks" />
 	
 	<context:component-scan base-package="com.springinpractice.ch08.web" />
+		
+	<!-- Using this for the RSS news feed -->
+	<!-- IMPORTANT: We must define this BEFORE defining the InternalResourceViewResolver. Order matters. -->
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:viewClass="org.springframework.web.servlet.view.JstlView"
 		p:prefix="/WEB-INF/jsp/"
 		p:suffix=".jsp" />
+		
+	<bean id="news"
+		class="com.springinpractice.ch08.web.RssNewsFeedView"
+		p:feedTitle="News"
+		p:feedDescription="Recent updates"
+		p:feedLink="http://example.com/"/>
 	
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"

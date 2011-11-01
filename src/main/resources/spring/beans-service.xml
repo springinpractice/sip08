@@ -27,6 +27,7 @@
 		
 		<property name="annotatedClasses">
 			<list>
+				<value>com.springinpractice.ch08.model.NewsItem</value>
 				<value>com.springinpractice.ch08.model.Subscriber</value>
 				<value>com.springinpractice.ch08.model.Unsubscriber</value>
 				<value>com.springinpractice.ch08.model.UserMessage</value>

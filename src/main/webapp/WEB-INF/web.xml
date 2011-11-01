@@ -10,12 +10,12 @@
 	</context-param>
 	<context-param>
 		<param-name>recipe</param-name>
-		<param-value>8.4</param-value>
+		<param-value>8.5</param-value>
 	</context-param>
 	<context-param>
 		<param-name>aboutThisRecipe</param-name>
 		<param-value><![CDATA[
-			<p>Recipe 8.4 shows how to implement mailing list subscription and unsubscription.</p>
+			<p>We add support for an RSS feed in recipe 8.5.</p>
 		]]></param-value>
 	</context-param>
 	<context-param>
