@@ -15,6 +15,8 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,6 +37,8 @@ import com.springinpractice.ch08.service.ContactService;
 @Controller
 @RequestMapping("/contact")
 public class ContactController {
+	private static final Logger log = LoggerFactory.getLogger(ContactController.class);
+	
 	@Inject private ContactService contactService;
 
 	/**
@@ -76,6 +80,8 @@ public class ContactController {
 			result.reject("error.global");
 			return getFullViewName("contactForm");
 		}
+		
+		log.debug("userMessage={}", userMessage);
 		
 		userMessage.setIpAddress(req.getRemoteAddr());
 		userMessage.setAcceptLanguage(req.getHeader("Accept-Language"));
