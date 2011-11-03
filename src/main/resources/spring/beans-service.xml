@@ -23,13 +23,9 @@
 	
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
-		p:dataSource-ref="dataSource">
+		p:dataSource-ref="dataSource"
+		p:packagesToScan="com.springinpractice.ch08.model">
 		
-		<property name="annotatedClasses">
-			<list>
-				<value>com.springinpractice.ch08.model.UserMessage</value>
-			</list>
-		</property>
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
