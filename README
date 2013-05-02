@@ -1,5 +1,5 @@
 ========================================================================================================================
-README - Spring in Practice Recipe 8.4
+README - Spring in Practice Recipe 8.5
 
 Copyright (c) 2013 Manning Publications Co.
 
@@ -10,4 +10,4 @@ Blog: http://springinpractice.com/
 Code: https://github.com/springinpractice
 ========================================================================================================================
 
-Recipe 8.4 shows how to implement mailing list subscription and unsubscription.
+We add support for an RSS feed in recipe 8.5.
